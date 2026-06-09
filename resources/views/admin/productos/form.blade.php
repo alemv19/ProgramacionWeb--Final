@@ -511,9 +511,9 @@
                         @if(isset($producto) && $producto->imagen)
                             <div style="margin-bottom:12px">
                                 <p style="font-size:12px;color:var(--texto-sub);margin-bottom:6px">Imagen actual:</p>
-                                <img src="{{ asset('public/images/productos/' . $producto->imagen) }}"
-                                    alt="{{ $producto->nombre }}"
-                                    style="width:100%;max-height:160px;object-fit:cover;border-radius:8px;border:1px solid var(--gris-borde)">
+                                <img src="{{ asset($producto->imagen) }}"
+     alt="{{ $producto->nombre }}"
+     style="width:250px;height:250px;object-fit:cover;border-radius:8px;border:1px solid var(--gris-borde);display:block;margin:auto">
                             </div>
                         @endif
 
