@@ -31,20 +31,21 @@ class RegisteredUserController extends Controller
             'pais'          => ['nullable', 'string', 'max:100'],
         ]);
 
-        $user = User::create([
-            'name'          => $request->name,
-            'email'         => $request->email,
-            'password'      => Hash::make($request->password),
-            'rol'           => 'cliente',
-            'direccion'     => $request->direccion,
-            'ciudad'        => $request->ciudad,
-            'codigo_postal' => $request->codigo_postal,
-            'pais'          => $request->pais,
-        ]);
+$user = User::create([
+    'name'          => $request->name,
+    'email'         => $request->email,
+    'password'      => Hash::make($request->password),
+    'rol'           => 'cliente',
+    'direccion'     => $request->direccion,
+    'ciudad'        => $request->ciudad,
+    'codigo_postal' => $request->codigo_postal,
+    'pais'          => $request->pais,
+]);
 
-        event(new Registered($user));
-        Auth::login($user);
+event(new Registered($user));
 
-        return redirect()->route('catalogo');
+// No iniciar sesión automáticamente
+return redirect()->route('login')
+    ->with('success', 'Registro exitoso. Ahora inicia sesión.');
     }
 }
