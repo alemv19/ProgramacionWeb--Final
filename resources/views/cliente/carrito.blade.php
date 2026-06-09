@@ -378,7 +378,7 @@
                         {{-- Imagen --}}
                         <div class="item-img">
                             @if($detalle->producto->imagen)
-                                <img src="{{ asset('public/images/productos/' . $detalle->producto->imagen) }}" alt="{{ $detalle->producto->nombre }}">
+                               <img src="{{ asset($detalle->producto->imagen) }}" alt="{{ $detalle->producto->nombre }}">
                             @else
                                 <i class="fas fa-box"></i>
                             @endif
